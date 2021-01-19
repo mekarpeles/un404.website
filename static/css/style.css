@@ -1,0 +1,212 @@
+html {
+    height: 100%;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(102,102,102,1) 0%, rgba(0,0,0,1) 100%);
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    margin: 0;
+    color: #fff;
+}
+
+.topbar {
+    background-color: #fff;
+    color: #222;
+}
+
+.un404 {
+    font-family: 'JetBrains Mono', monospace !important;
+    letter-spacing: 1px;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+.logo {
+    margin: 20px 10px;
+    font-size: 1.2em;
+    padding: 0px 5px;
+    border: 3px solid #fff;
+}
+
+img.wizard {
+  position: relative;
+  height: 55px;
+}
+
+.subtitle {
+    color: #999;
+}
+
+.topbar h1.logo a {
+    color: #222;
+    text-decoration: none;
+}
+
+.topbar h1.logo img {
+    position: relative;
+    top: 9px;
+    width: 35px;
+    margin-right: 10px;
+}
+
+h1.page-title {
+    text-align: center;
+    font-size: 3em;
+}
+
+h2.page-title {
+    text-align: center;
+    font-size: 3em;
+    font-weight: 100;
+}
+
+.strike{
+    position: relative;
+}
+
+.strike::after{
+    content: '';
+    border-bottom: 2px solid white;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+}
+
+.home-spacer {
+    padding: 20px 20px 0px 20px;
+}
+
+.home-spacer p, .home-spacer h2 {
+    text-align: center;
+}
+
+.home-spacer form {
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.submit {
+    cursor: pointer;
+    background: green;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+.submit:hover, .submit-hover {
+    background: lime;
+    color: #000;
+    transition: 0.4s;
+}
+
+input {
+    border-radius: 25px;
+    border: none;
+    padding: 15px 25px;
+    color: #000;
+    border: 3pt solid #aaa;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #666;
+}
+
+input:focus {
+    outline: none;
+    border: 3pt solid green;
+}
+
+.home-spacer input {
+    display: block;
+    margin: 0 auto;
+    max-width: 400px;
+    width: 100%;
+    font-size: 1.5em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.home-spacer input:before, .home-spacer input:after {
+    content: '"';
+}
+
+select:focus, select:focus {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+select.options {
+    color: #fff;
+    max-width: 400px;
+    padding: 5px 0px;
+    width: 100%;
+    text-align-last:center;
+    text-align: center;
+    display: block;
+    border: none;
+    margin: 20px auto;
+    font-family: 'Roboto', sans-serif;
+    background: none;
+    font-size: 1.3em;
+    border-bottom: 3px solid #fff;
+    background: transparent;
+}
+
+select option {
+    background: black !important;
+    outline: none !important;
+    border: none !important;
+    appearance:none;
+    -moz-appearance:none !important;
+    -webkit-appearance:none;
+    outline-color: none;
+    border: none;
+    background: none;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+}
+
+a {
+    color: #fff
+}
+
+.loader {
+    margin: 0 auto;
+    border: 15px solid #fff; /* Light grey */
+    background-color: #333;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 2em;
+    width: 150px;
+    height: 200px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+
+.bookmatch img {
+    border-radius: 10px;
+    width: 150px;
+    margin: 0 auto;
+    border: 15px solid #fff;
+}
+
+footer {
+    margin-top: 60px;
+    padding-bottom: 10px;
+}
