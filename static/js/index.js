@@ -3,23 +3,37 @@ var wordsArray = [
     "Bring a missing website back to life",
     "Curious how your favorite website used to look?",
     "Prove exactly what a website used to say",
-    "See how a website changes over time",
+    "See how a website is changing over time",
     "Explore the rich history of any website",
     "Save an important website before it changes"
 ];
 
-    /* 
-       Pads timestamp w/ 0's to make it 14 digits long
-       and removes dashes to enable human readable dates
-       like 2021-01 or 2020-01-01
-     */
+/*
+  Pads timestamp w/ 0's to make it 14 digits long
+  and removes dashes to enable human readable dates
+  like 2021-01 or 2020-01-01
+*/
 var normalizeTimestamp = function(ts) {
-    console.log(ts);
     ts = ts.replace(/-/g, "");
     while (ts.length < 14) {
 	ts += '0';
     }
     return ts;
+}
+
+function getCurrentTimestampUTC() {
+  function pad(n, width = 2) {
+    return String(n).padStart(width, '0');
+  }
+
+    const now = new Date();
+    const Y = now.getUTCFullYear();
+    const M = pad(now.getUTCMonth() + 1); // months are 0-based
+    const D = pad(now.getUTCDate());
+    const h = pad(now.getUTCHours());
+    const m = pad(now.getUTCMinutes());
+    const s = pad(now.getUTCSeconds());
+    return `${Y}${M}${D}${h}${m}${s}`; // 14 digits
 }
 
 function msToTime(s) {
@@ -86,7 +100,10 @@ function humanReadableTimestamp(ts) {
 
     Wayback = {
 	search: function(url, timestamp, callback) {
-	    var wburl = 'https://api.archivelab.org/wayback/availability';
+            timestamp = (
+                typeof timestamp === 'string' && timestamp.length > 0
+            ) ? timestamp : getCurrentTimestampUTC();
+	    var wburl = 'https://archive.org/wayback/available';
 	    wburl += '?timestamp=' + timestamp + '&url=' + url;
 	    requests.get(wburl, function(response) {
 		callback(response.archived_snapshots);
@@ -136,6 +153,7 @@ function humanReadableTimestamp(ts) {
 
     if (lmwbtfy) {
 	lmwbtfy = lmwbtfy.split('://')[lmwbtfy.split('://').length-1];
+        $('#url').val('https://');
 	(function writeToInput(i) {
 	    setTimeout(function() {
 		$('#url').focus().val(
@@ -172,7 +190,13 @@ function humanReadableTimestamp(ts) {
     $(document).submit(function(event) {
 	event.stopPropagation();
 	event.preventDefault();
+        
 	var url = $('#url').val();
+
+        if (!url.startsWith("http")) {
+            $('#url').val('https://' + url);
+        }
+
 	var opt = parseInt($('.options option:selected').val());
 	if (opt === 4) {
 	    window.location.href = "https://web.archive.org/*/" + url;

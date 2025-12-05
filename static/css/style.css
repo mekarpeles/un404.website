@@ -54,7 +54,7 @@ img.wizard {
 
 h1.page-title {
     text-align: center;
-    font-size: 3em;
+    font-size: 2em;
 }
 
 h2.page-title {
@@ -77,7 +77,7 @@ h2.page-title {
 }
 
 .home-spacer {
-    padding: 20px 20px 0px 20px;
+    padding: 0 20px 0px 20px;
 }
 
 .home-spacer p, .home-spacer h2 {
